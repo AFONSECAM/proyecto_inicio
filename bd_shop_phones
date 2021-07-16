@@ -1,0 +1,679 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 16-07-2021 a las 01:30:46
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `proyecto_inicio`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `accesories`
+--
+
+CREATE TABLE `accesories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `condition` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `model` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sku` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `warranty` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `weight` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color_id` bigint(20) UNSIGNED NOT NULL,
+  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `batteries`
+--
+
+CREATE TABLE `batteries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `batteries`
+--
+
+INSERT INTO `batteries` (`id`, `capacity`, `created_at`, `updated_at`) VALUES
+(1, '1000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(2, '2000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(3, '3000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(4, '4000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(5, '5000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(6, '6000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(7, '7000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(8, '8000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(9, '9000mAh', '2021-07-13 07:24:46', '2021-07-13 07:24:46');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `brands`
+--
+
+CREATE TABLE `brands` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `brand_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` enum('celular','accesorio','ambos') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `brands`
+--
+
+INSERT INTO `brands` (`id`, `brand_name`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'Apple', 'ambos', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(2, 'Samsung', 'ambos', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(3, 'Nokia', 'ambos', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(4, 'Motorola', 'ambos', '2021-07-13 07:24:46', '2021-07-13 07:24:46'),
+(5, 'LG', 'ambos', '2021-07-15 05:34:20', '2021-07-15 05:34:20'),
+(6, 'VIVO', 'ambos', '2021-07-15 05:35:52', '2021-07-15 05:35:52'),
+(7, 'Huawei', 'ambos', '2021-07-15 05:42:40', '2021-07-15 05:42:40'),
+(8, 'OPPO', 'ambos', '2021-07-15 05:50:36', '2021-07-15 05:50:36'),
+(9, 'TLC', 'ambos', '2021-07-15 06:18:32', '2021-07-15 06:18:32'),
+(10, 'XIAOMI', 'ambos', '2021-07-15 06:26:00', '2021-07-15 06:26:00');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `colors`
+--
+
+CREATE TABLE `colors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `color_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `colors`
+--
+
+INSERT INTO `colors` (`id`, `color_name`, `created_at`, `updated_at`) VALUES
+(1, 'Amarillo', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(2, 'Azul', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(3, 'Rojo', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(4, 'Verde', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(5, 'Negro', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(6, 'Blanco', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(7, 'Gris', '2021-07-13 07:24:47', '2021-07-13 07:24:47');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `genders`
+--
+
+CREATE TABLE `genders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `gender_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `graphic_cards`
+--
+
+CREATE TABLE `graphic_cards` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `graphic_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `graphic_cards`
+--
+
+INSERT INTO `graphic_cards` (`id`, `graphic_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Apple M1 8-Core GPU', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(2, 'Qualcomm Adreno 660', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(3, 'ARM Mali-G78 MP24', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(4, 'Qualcomm Adreno 650', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(5, 'ARM Mali-G78 MP14', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(6, 'Qualcomm Adreno 642', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(7, 'Qualcomm Adreno 630', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(8, 'ARM Mali-G76 MP12', 'Algo de info', '2021-07-13 07:24:47', '2021-07-13 07:24:47'),
+(9, 'NVIDIA Tegra K1 Kepler GPU', 'Algo de info', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(10, 'ARM Mali-G71 MP2', 'Algo de info', '2021-07-13 07:24:48', '2021-07-13 07:24:48');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2021_06_26_004545_create_batteries_table', 1),
+(5, '2021_07_02_001813_create_brands_table', 1),
+(6, '2021_07_02_002212_create_colors_table', 1),
+(7, '2021_07_02_002332_create_genders_table', 1),
+(8, '2021_07_02_002503_create_graphic_cards_table', 1),
+(9, '2021_07_02_002637_create_operating_systems_table', 1),
+(10, '2021_07_02_002741_create_processors_table', 1),
+(11, '2021_07_02_002841_create_ram_memories_table', 1),
+(12, '2021_07_02_002928_create_rom_memories_table', 1),
+(13, '2021_07_02_003010_create_screens_table', 1),
+(14, '2021_07_02_003223_create_phones_table', 1),
+(15, '2021_07_02_005927_create_roles_table', 1),
+(16, '2021_07_09_233654_create_accesories_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `operating_systems`
+--
+
+CREATE TABLE `operating_systems` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `os_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `operating_systems`
+--
+
+INSERT INTO `operating_systems` (`id`, `os_name`, `created_at`, `updated_at`) VALUES
+(1, 'Android 8', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(2, 'Android 9', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(3, 'Android 10', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(4, 'Android 11', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(5, 'iOS 6', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(6, 'iOS 7', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(7, 'iOS 8', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(8, 'iOS 9', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(9, 'iOS 10', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(10, 'iOS 11', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(11, 'Windows Phone', '2021-07-13 07:24:48', '2021-07-13 07:24:48');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `phones`
+--
+
+CREATE TABLE `phones` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `phone_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_model` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `foto` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `precio` int(11) NOT NULL,
+  `sd_slot` tinyint(1) NOT NULL,
+  `dual_sim` tinyint(1) NOT NULL,
+  `fast_charge` tinyint(1) NOT NULL,
+  `color_id` bigint(20) UNSIGNED NOT NULL,
+  `brand_id` bigint(20) UNSIGNED NOT NULL,
+  `screen_id` bigint(20) UNSIGNED NOT NULL,
+  `ram_memory_id` bigint(20) UNSIGNED NOT NULL,
+  `rom_memory_id` bigint(20) UNSIGNED NOT NULL,
+  `battery_id` bigint(20) UNSIGNED NOT NULL,
+  `processor_id` bigint(20) UNSIGNED NOT NULL,
+  `graphic_card_id` bigint(20) UNSIGNED NOT NULL,
+  `operating_system_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `phones`
+--
+
+INSERT INTO `phones` (`id`, `phone_name`, `phone_model`, `foto`, `precio`, `sd_slot`, `dual_sim`, `fast_charge`, `color_id`, `brand_id`, `screen_id`, `ram_memory_id`, `rom_memory_id`, `battery_id`, `processor_id`, `graphic_card_id`, `operating_system_id`, `created_at`, `updated_at`) VALUES
+(1, 'MOTOROLA', 'G20', '1626308347.jpeg', 609000, 1, 1, 1, 2, 4, 10, 3, 4, 5, 7, 7, 3, '2021-07-15 05:19:07', '2021-07-15 05:19:07'),
+(2, 'SAMSUNG', 'A21S', '1626308453.jpeg', 729900, 1, 1, 1, 5, 2, 9, 3, 4, 4, 5, 7, 3, '2021-07-15 05:20:53', '2021-07-15 05:20:53'),
+(3, 'LG', 'K61', '1626309321.jpeg', 999900, 1, 1, 1, 6, 5, 10, 3, 4, 4, 8, 6, 3, '2021-07-15 05:35:21', '2021-07-15 05:35:21'),
+(4, 'VIVO', 'Y51', '1626309459.jpeg', 797900, 1, 1, 1, 5, 6, 10, 5, 4, 5, 2, 5, 3, '2021-07-15 05:37:39', '2021-07-15 05:37:39'),
+(5, 'IPHONE', 'XR', '1626309580.jpeg', 2229000, 0, 0, 1, 5, 1, 10, 3, 3, 4, 1, 1, 10, '2021-07-15 05:39:40', '2021-07-15 05:39:40'),
+(6, 'Huawei', 'Y5P', '1626310024.jpeg', 359900, 1, 1, 1, 4, 7, 6, 1, 2, 3, 3, 5, 1, '2021-07-15 05:47:04', '2021-07-15 05:47:04'),
+(7, 'OPPO', 'A54', '1626310329.jpeg', 769900, 1, 1, 1, 2, 8, 10, 3, 4, 5, 8, 6, 4, '2021-07-15 05:52:09', '2021-07-15 05:52:09'),
+(8, 'MOTOROLA', 'G9', '1626310463.jpeg', 529900, 1, 1, 1, 4, 4, 9, 3, 3, 4, 8, 5, 4, '2021-07-15 05:54:23', '2021-07-15 05:54:23'),
+(9, 'IPHONE', 'PRO MAX', '1626311610.jpeg', 5829000, 0, 0, 0, 6, 1, 10, 3, 6, 5, 4, 1, 9, '2021-07-15 06:13:30', '2021-07-15 06:13:30'),
+(10, 'NOKIA', 'C1 PLUS', '1626311790.jpeg', 279900, 1, 1, 0, 2, 3, 5, 1, 2, 3, 2, 5, 3, '2021-07-15 06:16:30', '2021-07-15 06:16:30'),
+(11, 'TLC', '10L', '1626312244.jpeg', 699900, 1, 1, 1, 5, 9, 9, 4, 4, 6, 2, 9, 4, '2021-07-15 06:24:04', '2021-07-15 06:24:04'),
+(12, 'XIAOMI', 'POCO M3', '1626312436.jpeg', 679900, 1, 1, 1, 5, 10, 9, 3, 4, 5, 6, 8, 4, '2021-07-15 06:27:16', '2021-07-15 06:27:16'),
+(13, 'SAMSUNG', 'S20', '1626313652.jpeg', 2299000, 1, 1, 1, 2, 2, 10, 3, 4, 5, 5, 3, 4, '2021-07-15 06:47:32', '2021-07-15 06:47:32'),
+(14, 'MOTOROLA', 'E7 PLUS', '1626313744.jpeg', 489900, 1, 1, 1, 2, 4, 7, 3, 3, 5, 3, 8, 4, '2021-07-15 06:49:04', '2021-07-15 06:49:04'),
+(15, 'IPHONE', 'SE', '1626314740.jpeg', 1899000, 0, 0, 0, 5, 1, 6, 3, 3, 4, 1, 5, 10, '2021-07-15 07:05:40', '2021-07-15 07:05:40'),
+(16, 'XIAOMI', 'REDMINOTE 9', '1626314839.jpeg', 399000, 1, 1, 1, 7, 10, 6, 2, 2, 4, 2, 3, 2, '2021-07-15 07:07:19', '2021-07-15 07:07:19'),
+(17, 'MOTOROLA', 'ONE FUSION', '1626391314.jpeg', 679900, 1, 1, 1, 2, 4, 9, 3, 4, 4, 3, 8, 4, '2021-07-16 04:21:54', '2021-07-16 04:21:54'),
+(18, 'Huawei', 'Y7A', '1626391428.jpeg', 669900, 1, 1, 1, 2, 7, 9, 3, 3, 5, 7, 5, 1, '2021-07-16 04:23:48', '2021-07-16 04:23:48'),
+(19, 'XIAOMI', 'Mi 11 LITE', '1626391672.jpeg', 1999000, 1, 1, 1, 5, 10, 9, 4, 4, 5, 9, 6, 4, '2021-07-16 04:27:52', '2021-07-16 04:27:52'),
+(20, 'IPHONE', '11', '1626391776.jpeg', 3144000, 0, 0, 1, 6, 1, 9, 3, 3, 5, 3, 7, 10, '2021-07-16 04:29:36', '2021-07-16 04:29:36');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `processors`
+--
+
+CREATE TABLE `processors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `processor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `processors`
+--
+
+INSERT INTO `processors` (`id`, `processor_name`, `description`, `created_at`, `updated_at`) VALUES
+(1, 'Apple 10', 'Procesador de gran calidad para iOS', '2021-07-13 07:24:48', '2021-07-13 07:24:48'),
+(2, 'Snapdragon 821', 'Procesador de gran calidad con 160856 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(3, 'Snapdragon 820', 'Procesador de gran calidad con 138026 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(4, 'Apple A9', 'Procesador de gran calidad con 133781 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(5, 'Samsung Exynos 8890', 'Procesador de gran calidad con 129865 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(6, 'MTK Helio x25', 'Procesador de gran calidad con 97383 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(7, 'Kirin 955', 'Procesador de gran calidad con 96043 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(8, 'Kirin 950', 'Procesador de gran calidad con 92746 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(9, 'MTK Helio x20', 'Procesador de gran calidad con 92033 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(10, 'Samsung Exynos 7420', 'Procesador de gran calidad con 86652 puntos', '2021-07-13 07:24:49', '2021-07-13 07:24:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ram_memories`
+--
+
+CREATE TABLE `ram_memories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `ram_capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `ram_memories`
+--
+
+INSERT INTO `ram_memories` (`id`, `ram_capacity`, `created_at`, `updated_at`) VALUES
+(1, '2 GB', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(2, '3 GB', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(3, '4 GB', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(4, '6 GB', '2021-07-13 07:24:49', '2021-07-13 07:24:49'),
+(5, '8 GB', '2021-07-13 07:24:49', '2021-07-13 07:24:49');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rol_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rom_memories`
+--
+
+CREATE TABLE `rom_memories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `rom_capacity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `rom_memories`
+--
+
+INSERT INTO `rom_memories` (`id`, `rom_capacity`, `created_at`, `updated_at`) VALUES
+(1, '16 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(2, '32 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(3, '64 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(4, '128 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(5, '256 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(6, '512 GB', '2021-07-13 07:24:50', '2021-07-13 07:24:50');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `screens`
+--
+
+CREATE TABLE `screens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `inches` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `screens`
+--
+
+INSERT INTO `screens` (`id`, `inches`, `created_at`, `updated_at`) VALUES
+(1, '3,2\"', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(2, '3,3\"', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(3, '3,9\"', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(4, '4,4\"', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(5, '4,7\"', '2021-07-13 07:24:50', '2021-07-13 07:24:50'),
+(6, '5,0\"', '2021-07-13 07:24:51', '2021-07-13 07:24:51'),
+(7, '5,1\"', '2021-07-13 07:24:51', '2021-07-13 07:24:51'),
+(8, '5,3\"', '2021-07-13 07:24:51', '2021-07-13 07:24:51'),
+(9, '5,5\"', '2021-07-13 07:24:51', '2021-07-13 07:24:51'),
+(10, '6,0\"', '2021-07-13 07:24:51', '2021-07-13 07:24:51');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_rol` bigint(20) UNSIGNED NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `id_rol`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Andres Fonseca', 'andres@mail.com', '2021-07-13 07:24:45', '123456789', 1, 'A39RqxaVrC', '2021-07-13 07:24:45', '2021-07-13 07:24:45'),
+(2, 'miguel lopez', 'pepito@gmail.com', NULL, '$2y$10$MtDckn4Lscy1Gix9MUYyZuwQwlZAiii0yzTp3wkpcB5A.QCKy8m8G', 1, NULL, '2021-07-13 07:25:17', '2021-07-13 07:25:17');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `accesories`
+--
+ALTER TABLE `accesories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `batteries`
+--
+ALTER TABLE `batteries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `colors`
+--
+ALTER TABLE `colors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indices de la tabla `genders`
+--
+ALTER TABLE `genders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `graphic_cards`
+--
+ALTER TABLE `graphic_cards`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `operating_systems`
+--
+ALTER TABLE `operating_systems`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indices de la tabla `phones`
+--
+ALTER TABLE `phones`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `processors`
+--
+ALTER TABLE `processors`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ram_memories`
+--
+ALTER TABLE `ram_memories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `rom_memories`
+--
+ALTER TABLE `rom_memories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `screens`
+--
+ALTER TABLE `screens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `accesories`
+--
+ALTER TABLE `accesories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `batteries`
+--
+ALTER TABLE `batteries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `colors`
+--
+ALTER TABLE `colors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `genders`
+--
+ALTER TABLE `genders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `graphic_cards`
+--
+ALTER TABLE `graphic_cards`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `operating_systems`
+--
+ALTER TABLE `operating_systems`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `phones`
+--
+ALTER TABLE `phones`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `processors`
+--
+ALTER TABLE `processors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `ram_memories`
+--
+ALTER TABLE `ram_memories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `rom_memories`
+--
+ALTER TABLE `rom_memories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `screens`
+--
+ALTER TABLE `screens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
