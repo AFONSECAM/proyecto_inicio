@@ -22,6 +22,64 @@
 
 <!-- End Carrusel -->
 
+<div class="container">
+    <div class="accesorios celulares">
+        <div class="  wrapper">
+            <h2 id="">Accesorios celulares</h2>
+        </div>
+        <div class="auriculares-cascos-con-micrófono-y-control-volumen-iphone-estampado-leopardo w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/auriculares-cascos-con-micrófono-y-control-volumen-iphone-estampado-leopardo-500x500.jpg 1.jpg" alt="">
+        </div>
+        <div class="CABLE-RADIANCE-PRO-REMAX w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/CABLE-RADIANCE-PRO-REMAX-3-500x500.jpg 2.jpg" alt="">
+        </div>
+        <div class="CONVERTIDOR-TYPE-C-A-MICRO  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/CONVERTIDOR-TYPE-C-A-MICRO-003461.jpg 3.jpg" alt="">
+        </div>
+        <div class="HUBS-MULTIPUERTO-WIWU-3EN1-005535-1-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/HUBS-MULTIPUERTO-WIWU-3EN1-005535-1-500x500.jpg 4.jpg" alt="">
+        </div>
+        <div class="MANOS LIBRES PC PRO 005005  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/MANOS LIBRES PC PRO 005005-500x500.jpg 5.jpg" alt="">
+        </div>
+        <div class="MANOS LIBRES PC PRO REF 005414-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/MANOS LIBRES PC PRO REF 005414-500x500.jpg 6.jpg" alt="">
+        </div>
+        <div class="MANOS-LIBRES-BLUETOOTH-7G w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/MANOS-LIBRES-BLUETOOTH-7G-500x500.jpg 7.jpg" alt="">
+        </div>
+        <div class="MANOS-LIBRES-ORG-S8 w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/MANOS-LIBRES-ORG-S8-2-500x500.jpg 8.jpg" alt="">
+        </div>
+        <div class="CABLE-BLINDADO-3M-TYPE-C-004415-1 w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/CABLE-BLINDADO-3M-TYPE-C-004415-1-500x500.jpg 9.jpg" alt="">
+        </div>
+        <div class="CABLE-BLINDADO BLANCO -3M-TYPE C 10  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/CABLE-BLINDADO BLANCO -3M-TYPE C 10.jpg" alt="">
+        </div>
+        <div class="CABLE BLINDADO BLANCO 1-2 M  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/CABLE BLINDADO BLANCO 1-2-500x500.jpg 12.jpg" alt="">
+        </div>
+        <div class="Audífonos-Manos-Libres-Bluetooth-I9S-4- w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/Audífonos-Manos-Libres-Bluetooth-I9S-4-500x500.jpg 13.jpg" alt="">
+        </div>
+        <div class="Audífonos-Manos-Libres-C550-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/Audífonos-Manos-Libres-C550-500x500.jpg 14.jpg" alt="">
+        </div>
+        <div class="Cable-Datos-Cordon-Micro-USB-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/Cable-Datos-Cordon-Micro-USB-500x500.jpg 15.jpg" alt="">
+        </div>
+        <div class="Audífonos-Manos-Libres-5G-1-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/Audífonos-Manos-Libres-5G-1-500x500.jpg 16.jpg" alt="">
+        </div>
+        <div class="Audifonos-Manos libres sencillos 1-2-  w-100 d-flex align-items-center">
+            <img src="imagenes/imagenesguardadas/Audifonos-Manos libres sencillos 1-2-500x500.jpg 17.jpg" alt="">
+         </div>
+        </div>
+    </div>
+</div>
+</section>
+
 <div class="col-md-12 pb-5">
     <form>
         <div class="form-row">
