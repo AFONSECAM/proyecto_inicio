@@ -79,7 +79,7 @@
 function eliminar() {
     Swal.fire({
         title: '¿Está seguro?',
-        text: "You won't be able to revert this!",
+        text: "No puedes deshacer esto",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -89,7 +89,7 @@ function eliminar() {
         if (result.isConfirmed) {
             Swal.fire(
                 'Eliminado!',
-                'Your file has been deleted.',
+                'El registro ha sido eliminado',
                 'success'
             )
         }
