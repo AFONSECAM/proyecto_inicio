@@ -52,6 +52,9 @@
                     </table>
                 </div>
             </div>
+            <div class="float-right">
+                {!! $colores->links() !!}
+            </div>
         </div>
     </div>
 </div>

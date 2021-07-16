@@ -14,7 +14,7 @@ class BatteryController extends Controller
      */
     public function index()
     {
-        $baterias = Battery::all();
+        $baterias = Battery::paginate(5);
         return view('battery.index', compact('baterias'));
     }
 

@@ -29,7 +29,7 @@
     </div>
     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Previou</span>
     </a>
     <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -52,8 +52,12 @@
     <img src="{{asset('uploads/phones/'.$phone->foto)}}" class="card-img-top" alt="Se supone que va la imagen"
         width="200px" height="200px">
     <div class="card-body text-center">
-        <h5 class="card-title">{{ucfirst(strtolower($phone->phone_name))}}</h5>
-        <p class="card-text">${{number_format($phone->precio)}}</p>
+        <h5 class="card-title">{{ucfirst(strtolower($phone->phone_name))}} {{ucfirst(strtolower($phone->phone_name))}}
+        </h5>
+        <strike class="text-muted">${{number_format($phone->precio)}} </strike>
+        <span class="badge badge-success">-{{ rand(10, 25)}}%</span>
+        <p class="card-text">${{number_format($phone->precio - ($phone->precio * (rand(1, 25) / 100))) }}</p>
+
         <a href="#" class="btn btn-primary">¡Lo quiero!</a>
     </div>
 </div>

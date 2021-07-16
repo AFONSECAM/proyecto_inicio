@@ -54,6 +54,9 @@
                     </table>
                 </div>
             </div>
+            <div class="float-right">
+                {!! $procesadores->links() !!}
+            </div>
         </div>
     </div>
 </div>

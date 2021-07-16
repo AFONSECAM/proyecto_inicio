@@ -24,7 +24,7 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        $phones = Phone::all();
+        $phones = Phone::paginate(8);
         return view('phone.index', compact('phones'));
     }
 

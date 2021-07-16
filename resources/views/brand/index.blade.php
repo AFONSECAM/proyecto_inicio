@@ -55,6 +55,9 @@
                     </table>
                 </div>
             </div>
+            <div class="float-right">
+                {!! $brands->links() !!}
+            </div>
         </div>
     </div>
 </div>

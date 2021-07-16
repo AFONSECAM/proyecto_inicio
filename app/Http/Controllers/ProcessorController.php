@@ -14,7 +14,7 @@ class ProcessorController extends Controller
      */
     public function index()
     {
-        $procesadores = Processor::all();
+        $procesadores = Processor::paginate(5);
         return view('processor.index', compact('procesadores'));
     }
 

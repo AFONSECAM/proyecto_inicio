@@ -19,7 +19,7 @@ class AccesoryController extends Controller
      */
     public function index()
     {
-        $accesories = Accesory::all();
+        $accesories = Accesory::paginate(4);
         return view('accesory.index', compact('accesories'));
     }
 

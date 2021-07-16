@@ -53,6 +53,9 @@
                     </table>
                 </div>
             </div>
+            <div class="float-right">
+                {!! $baterias->links() !!}
+            </div>
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ class RomMemoryController extends Controller
      */
     public function index()
     {
-        $roms = RomMemory::all()->sortBy('rom_capacity');
+        $roms = RomMemory::paginate(5);
         return view('rom.index', compact('roms'));
     }
 
