@@ -36,7 +36,7 @@
                             @foreach($roms as $rom)
                             <tr class="text-center">
                                 <td>{{ $rom->id}}</td>
-                                <td>{{ $rom->rom_capacity}} GB</td>
+                                <td>{{ $rom->rom_capacity}}</td>
                                 <td>
                                     <form action="{{ route('rom.destroy',$rom->id) }}" method="POST">
                                         <a class="btn btn-primary btn-sm" href="{{ route('rom.edit',$rom->id) }}"><i
@@ -52,6 +52,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="float-right">
+                {!! $roms->links() !!}
             </div>
         </div>
     </div>

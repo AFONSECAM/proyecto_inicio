@@ -32,17 +32,17 @@
                             <th>Acción</th>
                         </thead>
                         <tbody>
-                            @foreach($ram as $ram)
+                            @foreach($rams as $ram)
                             <tr class="text-center">
                                 <td>{{ $ram['id']}}</td>
-                                <td>{{ $ram['ram_capacity']}} GB</td>
+                                <td>{{ $ram['ram_capacity']}}</td>
                                 <td>
                                     <form action="{{ route('ram.destroy',$ram->id) }}" method="POST">
-                                        <a class="btn btn-primary" href="{{ route('ram.edit',$ram->id) }}"><i
+                                        <a class="btn btn-primary btn-sm" href="{{ route('ram.edit',$ram->id) }}"><i
                                                 class="fa fa-pen"></i></a>
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" id="btnEliminar"
+                                        <button type="submit" class="btn btn-danger btn-sm" id="btnEliminar"
                                             onclick="eliminar();"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </td>
@@ -51,6 +51,9 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="float-right">
+                {!! $rams->links() !!}
             </div>
         </div>
     </div>

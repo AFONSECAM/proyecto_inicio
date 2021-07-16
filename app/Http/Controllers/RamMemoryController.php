@@ -14,8 +14,8 @@ class RamMemoryController extends Controller
      */
     public function index()
     {
-        $ram = RamMemory::all();
-        return view('ram.index', compact('ram'));
+        $rams = RamMemory::paginate(5);
+        return view('ram.index', compact('rams'));
     }
 
     /**
