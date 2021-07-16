@@ -1,5 +1,4 @@
 @extends('layouts.pages')
-
 @section('content')
 <!-- <div class="jumbotron col-md-12 text-white"
     style="background-image: url(https://surflorida.com/wp-content/uploads/2021/02/mejores-celulares-2018.jpg); background-size: 100% 100%; opacity: 0.8;">
@@ -21,8 +20,6 @@
 </div>
 
 <!-- End Carrusel -->
-
-
 <div class="col-md-12 pb-5">
     <form>
         <div class="form-row">
