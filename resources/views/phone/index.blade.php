@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-
+                        @if(!empty($phones) && $phones->count())
                         @foreach($phones as $phone)
                         <div class="card col-sm-12 col-md-4 col-lg-3 pb-3">
                             <div>
@@ -50,8 +50,15 @@
                                     onclick="eliminar();"><i class="fa fa-trash"></i></button>
                             </form>
                         </div>
-
                         @endforeach
+                        @else
+                        <div class="col-md-12">
+                            <h5>No hay registros para mostrar</h5>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="float-right">
+                        {!! $phones->links() !!}
                     </div>
                 </div>
             </div>
